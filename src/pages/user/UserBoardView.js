@@ -4,7 +4,7 @@ import { useUserContext } from "../../provider/UserProvider";
 
 function UserBoardViewPage() {
   // 이 페이지가 가변경로를 처리 (스프링으로 생각해봣을떄 @PathVariable)한다면 그 값을 어떻게 확인하냐.
-  /*
+
   const { token } = useUserContext();
   const { id } = useParams();
   const [item, setItem] = useState(null);
@@ -28,7 +28,6 @@ function UserBoardViewPage() {
       setItem(obj);
     })();
   }, []);
-*/
 
   return (
     <div className="user-board">
