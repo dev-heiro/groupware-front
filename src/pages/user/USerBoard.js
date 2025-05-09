@@ -4,7 +4,7 @@ import { useUserContext } from "../../provider/UserProvider";
 
 function UserBoardPage() {
   const { token } = useUserContext();
-  const [boards, setBoards] = useState([]);
+  const [boards, setBoards] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     fetch("http://192.168.10.62:9090/api/board", {
@@ -41,18 +41,19 @@ function UserBoardPage() {
             </tr>
           </thead>
           <tbody>
-            {boards.map((item) => (
-              <tr
-                key={item.id}
-                onClick={() => {
-                  navigate("/user/workspace/board/" + item.id);
-                }}
-              >
-                <td>{item.title}</td>
-                <td>{item.writer.name}</td>
-                <td>{item.wroteAt}</td>
-              </tr>
-            ))}
+            {boards &&
+              boards.content.map((item) => (
+                <tr
+                  key={item.id}
+                  onClick={() => {
+                    navigate("/user/workspace/board/" + item.id);
+                  }}
+                >
+                  <td>{item.title}</td>
+                  <td>{item.writer.name}</td>
+                  <td>{item.wroteAt}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </>
