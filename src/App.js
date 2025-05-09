@@ -13,6 +13,11 @@ import UserWorkspaceLayout from "./pages/user/UserLayout";
 import UserBoardPage from "./pages/user/USerBoard";
 import UserBoardWritePage from "./pages/user/UserBoardWrite";
 import UserBoardViewPage from "./pages/user/UserBoardView";
+import UserNoteInBox from "./pages/user/UserNoteInBox";
+import UserNoteSenderPage from "./pages/user/UserNoteSender";
+import UserNoteOutBoxPage from "./pages/user/UserNoteOutBox";
+import UserNoteViewerPage from "./pages/user/UserNoteViewer";
+import UserChatPage from "./pages/user/UserChatPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,6 +52,26 @@ function App() {
         {
           path: "/user/workspace/board/write",
           element: <UserBoardWritePage />,
+        },
+        {
+          path: "/user/workspace/note/inbox",
+          element: <UserNoteInBox />,
+        },
+        {
+          path: "/user/workspace/note/outbox",
+          element: <UserNoteOutBoxPage />,
+        },
+        {
+          path: "/user/workspace/note/sender",
+          element: <UserNoteSenderPage />,
+        },
+        {
+          path: "/user/workspace/note/viewer/:id",
+          element: <UserNoteViewerPage />,
+        },
+        {
+          path: "/user/workspace/chat/:departmentId",
+          element: <UserChatPage />,
         },
       ],
     },
